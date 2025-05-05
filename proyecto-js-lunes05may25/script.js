@@ -2,14 +2,14 @@ const students = []
 
 const tableBody = document.querySelector("#studentsTable tbody")
 
-document.getElementById('studentForm').addEventListener('submit', function(e){
+document.getElementById("studentForm").addEventListener('submit', function(e){
     e.preventDefault();
 
     const name=document.getElementById('name').value.trim();
     const lastName=document.getElementById('lastName').value.trim();
     const grade=document.getElementById('grade').value.trim();
 
-    if(grade < 1 || grade > 7 || grade === null){
+    if(grade < 1 || grade > 7 || isNaN(grade) ){
         alert("Error Datos Incorrectos")
         return
     }
@@ -17,7 +17,7 @@ document.getElementById('studentForm').addEventListener('submit', function(e){
     const student={name, lastName, grade};
     students.push(student)
 
-    console.log(students)
+    addStudentToTable(student)
 
     this.reset()
 
@@ -30,7 +30,7 @@ function addStudentToTable(student)
     `
     <td>${student.name}</td>
     <td>${student.lastName}</td>
-    <td>${student.grade.toFixed(1)}</td>
+    <td>${student.grade}</td>
     `;
     tableBody.appendChild(row)
 }
