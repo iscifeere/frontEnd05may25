@@ -40,7 +40,7 @@ function addStudentToTable(student)
 function calcularPromedio()
 {
     if(students.length === 0){
-        return averageDiv.textContent="Promedio general del curso:N/A";
+        return averageDiv.textContent="Promedio general del curso: No Disponible";
     }
     let total = 0
     for (let i = 0; i < students.length; i++) {
