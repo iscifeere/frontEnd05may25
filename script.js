@@ -40,9 +40,12 @@ function addStudentToTable(student)
 function calcularPromedio()
 {
     if(students.length === 0){
-        averageDiv.textContent="Promedio general del curso:N/A";
-        return;
+        return averageDiv.textContent="Promedio general del curso:N/A";
     }
-    const total=students.reduce((sum, s) => sum + s.grade, 0)
+    let total = 0
+    for (let i = 0; i < students.length; i++) {
+        total += Math.floor(students[i].grade * 100) * 0.01;
+    }
+    const average = total/students.length
     averageDiv.textContent=`Promedio General del Curso: ${average.toFixed(2)}`
 }
